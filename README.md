@@ -65,7 +65,3 @@ python manage.py runserver
 ```
 
 Visit http://localhost:8000/ in your browser to access the application.
-
-## License
-
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
