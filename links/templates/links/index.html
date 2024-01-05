@@ -1,0 +1,23 @@
+{% extends 'links/_base.html' %}
+{% block content %}
+<div class="sm:w-2/3 mx-auto px-10">
+    <h1 class="text-4xl mb-2">Links</h1>
+    {% for link in links %}
+    <div class="border rounded px-12 py-8 my-6 hover:bg-gray-50">
+        <div class="flex justify-between items-center pb-6">
+            <p class="text-2xl">{{ link.name }}</p>
+            <div class="flex items-center">
+                <p class="rounded-full bg-green-200 px-6 py-2">Clicks: {{ link.clicks }}</p>
+                <a href="{% url 'delete-link' link.name%}">
+                <button class="ml-4 bg-cyan-300 text-black px-4 py-2 rounded-full hover:bg-blue-700">Delete</button>
+                </a>
+            </div>
+        </div>
+        <div class="flex justify-between items-center">
+            <p><a class="underline text-blue-700" href="{{ link.url }}">{{ link.url }}</a></p>
+            <p class="underline underline text-blue-700"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }} →</a></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

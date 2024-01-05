@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="">
+        <header class="text-gray-600 body-font border-b mb-8">
+            <div class="container mx-auto flex flex-wrap px-10 py-5 flex-col md:flex-row items-center">
+                <a href="{% url 'home' %}" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class="ml-3 text-xl">Link.ly</span>
+                </a>
+                <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+                <a href="{% url 'home' %}" class="mr-5 hover:text-gray-900">All Links</a>
+                </nav>
+                <a href="{% url 'create-link' %}">
+                    <button class="inline-flex items-center bg-blue-100 border-0 py-2 px-5 focus:outline-none hover:bg-blue-200 rounded text-base mt-4 md:mt-0">Add Link
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </a>
+            </div>
+        </header>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
