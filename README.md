@@ -1,4 +1,4 @@
-# Shorty
+# Shorty - url shortener
 
 ## Description
 
