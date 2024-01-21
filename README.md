@@ -1,11 +1,9 @@
-# Project Name
-
-Shorty
+# Shorty
 
 ## Description
 
 Shorty is a Django-based URL shortening service, inspired by Bitly, that allows users to create shortened versions of long URLs. This project provides a simple and efficient way to generate short links, making it easier to share and manage URLs.
-
+[Live Page](https://shorty-iaog.onrender.com/)
 ## Features
 
 - **URL Shortening:** Create short and custom URLs for easier sharing.
