@@ -9,6 +9,7 @@ class Link(models.Model):
     url = models.URLField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     clicks = models.PositiveIntegerField(default=0)
+    isdeletable = models.BooleanField(default=1)
 
     def __str__(self):
         return f"{self.name} | {self.clicks}"
