@@ -43,7 +43,7 @@ def add_link(request):
 
 
 def delete_link(request, link_slug):
-    link_deleter = get_object_or_404(Link, slug=link_slug)
+    link_deleter = get_object_or_404(Link, slug=link_slug, isdeletable=1)
     link_deleter.delete()
     return redirect(reverse("home"))
 
@@ -61,10 +61,9 @@ class QRCodeView(TemplateView):
     def get(self, request, *args, **kwargs):
         link_slug = self.kwargs.get("link_slug")
         link = get_object_or_404(Link, slug=link_slug)
-        url = link.url
 
         # Generate QR code
-        img = qrcode.make(url)
+        img = qrcode.make(f"https://shorty-iaog.onrender.com/link/{link_slug}")
 
         # Create an in-memory image
         img_bytes = BytesIO()
