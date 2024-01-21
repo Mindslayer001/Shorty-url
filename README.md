@@ -14,15 +14,6 @@ Shorty is a Django-based URL shortening service, inspired by Bitly, that allows 
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.
-- asgiref==3.7.2
-- crispy-tailwind==0.5.0
-- Django==5.0.1
-- django-crispy-forms==2.1
-- sqlparse==0.4.
-
 ### Installation
 
 1. Clone the repository:
