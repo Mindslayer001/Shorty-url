@@ -1,4 +1,4 @@
-#!/home/mindslayer001/python/bitly_clone/env/bin/python
+#!/home/mindslayer001/python/Shorty-URL_Shortening/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

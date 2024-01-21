@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/mindslayer001/python/bitly_clone/env"
+VIRTUAL_ENV="/home/mindslayer001/python/Shorty-URL_Shortening/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/mindslayer001/python/bitly_clone/env"
+set -gx VIRTUAL_ENV "/home/mindslayer001/python/Shorty-URL_Shortening/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
