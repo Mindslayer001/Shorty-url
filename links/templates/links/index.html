@@ -31,6 +31,12 @@
                     </div>
                 </div>
                 <div class="flex justify-between items-center">
+                  {% if link.isdeletable %}
+                  
+                    <p> <a href="{% url 'delete-link' link.slug %}">
+                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700">Delete</button>
+                        </a></p>
+                  {% endif %}
                     <p class="text-sm"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }} →</a></p>
                 </div>
             </div>
