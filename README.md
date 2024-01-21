@@ -1,4 +1,6 @@
-# Shorty - Link Shortner
+# Project Name
+
+Shorty
 
 ## Description
 

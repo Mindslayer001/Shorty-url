@@ -1,23 +1,54 @@
 {% extends 'links/_base.html' %}
+
+
+{% block style %}
+    {% if not links %}
+        .add_link {
+        display:none;       
+        }
+    {% endif %}
+{% endblock style %}
 {% block content %}
-<div class="sm:w-2/3 mx-auto px-10">
+<div class="container mx-auto p-4">
     <h1 class="text-4xl mb-2">Links</h1>
-    {% for link in links %}
-    <div class="border rounded px-12 py-8 my-6 hover:bg-gray-50">
-        <div class="flex justify-between items-center pb-6">
-            <p class="text-2xl">{{ link.name }}</p>
-            <div class="flex items-center">
-                <p class="rounded-full bg-green-200 px-6 py-2">Clicks: {{ link.clicks }}</p>
-                <a href="{% url 'delete-link' link.name%}">
-                <button class="ml-4 bg-cyan-300 text-black px-4 py-2 rounded-full hover:bg-blue-700">Delete</button>
-                </a>
+    {% if links %}
+        {% for link in links %}
+            <div class="border rounded p-4 my-4 hover:bg-gray-50">
+                <div class="flex justify-between items-center pb-2">
+                    <p class="text-xl">{{ link.name }}</p>
+                    <div class="flex items-center">
+                        <p class="rounded-full bg-green-200 px-4 py-1"><i class="fa-solid fa-computer-mouse"></i> : {{ link.clicks }}</p>
+                        <!--a href="{% url 'delete-link' link.slug %}">
+                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700"><i class="fa-solid fa-trash"></i></button>
+                        </a-->
+                        <a href="{% url 'qr-generate' link.slug  %}">
+                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700"><i class="fa-solid fa-qrcode"></i></button>
+                        </a>
+                         <a href="{% url 'update-link' link.slug  %}">
+                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <p><a class="underline text-blue-700" href="{{ link.url }}">{{ link.url }}</a></p>
+                    <p class="text-sm"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }} →</a></p>
+                </div>
             </div>
-        </div>
-        <div class="flex justify-between items-center">
-            <p><a class="underline text-blue-700" href="{{ link.url }}">{{ link.url }}</a></p>
-            <p class="underline underline text-blue-700"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }} →</a></p>
-        </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+        <a href="{% url 'create-link' %}">
+            <button class=" inline-flex items-center bg-blue-100 border-0 py-2 px-5 focus:outline-none hover:bg-blue-200 rounded text-base">
+                Add Link
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </a>
+    {% endif %}
 </div>
 {% endblock content %}
+
+
+
+

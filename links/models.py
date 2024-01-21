@@ -5,7 +5,7 @@ from django.utils.text import slugify
 
 
 class Link(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     url = models.URLField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     clicks = models.PositiveIntegerField(default=0)

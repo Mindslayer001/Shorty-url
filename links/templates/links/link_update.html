@@ -1,13 +1,8 @@
-{% extends 'links/_base.html' %}
+{% extends "links/_base.html"%}
 {% load tailwind_filters %}
-{% block style %}
-.add_link{
- display : none;
-}
-{% endblock style %}
 {% block content %}
 <div class="sm:w-3/4 mx-auto">
-    <h1 class="text-2xl font-bold mb-4 text-center">Create a New Link</h1>
+    <h1 class="text-2xl font-bold mb-4 text-center">Edit Link</h1>
     <form action="" method="POST" class="max-w-md mx-auto">
         {% csrf_token %}
         {{ form|crispy }}

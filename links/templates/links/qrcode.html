@@ -1,0 +1,16 @@
+{% extends 'links/_base.html'%}
+{% block content %}
+<div class="flex justify-center">
+    <h1>QR Code for Link</h1>
+</div>
+
+<div class="flex justify-center">
+<img src="{{ qrcode_data }}" alt="QR Code">
+</div>
+
+<div class="flex justify-center">
+    <a href="{% url 'home' %}">
+        <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700">Back to home</button>
+    </a>
+</div>
+{% endblock content %}
