@@ -1,6 +1,4 @@
 {% extends 'links/_base.html' %}
-
-
 {% block style %}
     {% if not links %}
         .add_link {
@@ -13,14 +11,12 @@
     <h1 class="text-4xl mb-2">Links</h1>
     {% if links %}
         {% for link in links %}
-            <div class="border rounded p-4 my-4 hover:bg-gray-50">
+        <a href="{% url 'root-link' link.slug %}">
+        <div class="border rounded p-4 my-4 hover:bg-gray-50">
                 <div class="flex justify-between items-center pb-2">
                     <p class="text-xl">{{ link.name }}</p>
                     <div class="flex items-center">
                         <p class="rounded-full bg-green-200 px-4 py-1"><i class="fa-solid fa-computer-mouse"></i> : {{ link.clicks }}</p>
-                        <!--a href="{% url 'delete-link' link.slug %}">
-                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700"><i class="fa-solid fa-trash"></i></button>
-                        </a-->
                         <a href="{% url 'qr-generate' link.slug  %}">
                             <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700"><i class="fa-solid fa-qrcode"></i></button>
                         </a>
@@ -34,12 +30,20 @@
                   {% if link.isdeletable %}
                   
                     <p> <a href="{% url 'delete-link' link.slug %}">
-                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700">Delete</button>
-                        </a></p>
+                            <button class="ml-4 bg-cyan-300 text-black px-3 py-1 rounded-full hover:bg-blue-700">
+                              Delete
+                            </button>
+                        </a>
+                    </p>
                   {% endif %}
-                    <p class="text-sm"><a target="_blank" href="{% url 'root-link' link.slug %}">Open /{{ link.slug }} →</a></p>
+                    <p class="text-sm">
+                      <a target="_blank" href="{% url 'root-link' link.slug %}">
+                        Open /{{ link.slug }} →
+                      </a>
+                    </p>
                 </div>
             </div>
+        </a>
         {% endfor %}
     {% else %}
         <a href="{% url 'create-link' %}">
